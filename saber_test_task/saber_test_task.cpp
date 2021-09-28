@@ -1,5 +1,5 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
+#include "List.h"
 
 int* intToByte(int number)
 {
@@ -64,6 +64,8 @@ void RemoveDups(char* str)
     }
 }
 
+
+
 int main()
 {
     intToByte(-16);
@@ -72,5 +74,16 @@ int main()
     RemoveDups(data);
     std::cout <<data;
 
+    List list;
+    /*std::string test[] = { "aaaaaa" ,"bbbbbbbb","ccccccc"};
+    
+    for (std::string data:test)
+    {
+        list.add(data);
+    }*/
 
+    FILE* file;
+    fopen_s(&file,"test.txt", "rb");
+    list.Deserialize(file);
+    fclose(file);
 }
